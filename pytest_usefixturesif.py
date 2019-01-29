@@ -10,7 +10,7 @@ def pytest_configure(config):
 
 def pytest_runtest_setup(item):
     """Add pytest.markusefixturesif() to py.test"""
-    marker = item.get_marker('usefixturesif')
+    marker = item.get_closest_marker('usefixturesif')
     if marker is not None:
         for info in marker:
             if info.args[0]:
